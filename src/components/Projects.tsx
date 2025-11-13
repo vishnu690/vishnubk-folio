@@ -18,7 +18,7 @@ export const Projects = () => {
         "Optimized data separation across multiple client organizations",
         "Collaborated on end-to-end feature development from APIs to UI",
       ],
-      technologies: ["NestJS", "TypeScript", "PostgreSQL", "React"],
+      technologies: ["NestJS", "TypeScript","Azure", "Pinia", "Vue.js","Nuxt.js" ],
     },
     {
       icon: Users,
@@ -31,7 +31,7 @@ export const Projects = () => {
         "Ensured high performance and reliability in critical systems",
         "Integrated with frontend for seamless user experience",
       ],
-      technologies: ["NestJS", "TypeORM", "MySQL", "REST APIs"],
+      technologies: ["NestJS", "TypeORM", "Azure", "REST APIs"],
     },
   ];
 

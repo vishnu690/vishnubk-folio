@@ -34,72 +34,71 @@ export const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 px-4 transition-all duration-300 ${
         isScrolled
           ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <button
-            onClick={() => scrollToSection("home")}
-            className="text-xl font-bold text-foreground hover:text-primary transition-colors"
-          >
-            VBK
-          </button>
+      <div className="flex items-center justify-between h-16 w-full">
+        {/* Left: Logo */}
+        <button
+          onClick={() => scrollToSection("home")}
+          className="text-xl font-bold text-foreground hover:text-primary transition-colors ml-2"
+        >
+          VBK
+        </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+        {/* Right: Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-1 mr-2">
+          {navLinks.map((link) => (
+            <Button
+              key={link.id}
+              variant="ghost"
+              onClick={() => scrollToSection(link.id)}
+              className="text-foreground hover:text-primary"
+            >
+              {link.label}
+            </Button>
+          ))}
+          <ThemeToggle />
+        </div>
+
+        {/* Right: Mobile Menu Button */}
+        <div className="flex items-center space-x-2 md:hidden mr-2">
+          <ThemeToggle />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </Button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden py-4 bg-background border-t border-border animate-fade-in">
+          <div className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <Button
                 key={link.id}
                 variant="ghost"
                 onClick={() => scrollToSection(link.id)}
-                className="text-foreground hover:text-primary"
+                className="justify-start text-foreground hover:text-primary"
               >
                 {link.label}
               </Button>
             ))}
-            <ThemeToggle />
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center space-x-2 md:hidden">
-            <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </Button>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 bg-background border-t border-border animate-fade-in">
-            <div className="flex flex-col space-y-2">
-              {navLinks.map((link) => (
-                <Button
-                  key={link.id}
-                  variant="ghost"
-                  onClick={() => scrollToSection(link.id)}
-                  className="justify-start text-foreground hover:text-primary"
-                >
-                  {link.label}
-                </Button>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
+      )}
     </nav>
   );
 };

@@ -27,11 +27,6 @@ export const Skills = () => {
       title: "Tools",
       skills: ["Git", "Docker", "Postman", "Azure"],
     },
-    {
-      icon: Shield,
-      title: "Security",
-      skills: ["Secure credential storage", "Flutter secure storage", "API security"],
-    },
   ];
 
   return (
