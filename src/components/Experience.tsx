@@ -5,29 +5,29 @@ import { Briefcase, MapPin, Calendar } from "lucide-react";
 export const Experience = () => {
   const experiences = [
     {
-      title: "Software Engineer",
-      company: "Logezy Infotech Private Limited",
-      location: "Remote",
-      type: "Product-Based",
-      duration: "Current Position",
-      responsibilities: [
-        "Designed and developed RESTful APIs for enterprise applications",
-        "Optimized database queries resulting in improved system performance",
-        "Implemented multi-tenant database architecture for scalable solutions",
-        "Collaborated with cross-functional teams to deliver features on time",
-      ],
-    },
-    {
       title: "Software Support Executive",
       company: "Mellon Information Technology",
       location: "Abu Dhabi, UAE",
       type: "Service-Based",
-      duration: "Previous Role",
+      duration: "Current Position",
       responsibilities: [
         "Provided technical support for enterprise software systems",
         "Resolved client issues and improved customer satisfaction",
         "Documented technical solutions and best practices",
         "Worked closely with development teams on bug fixes",
+      ],
+    },
+    {
+      title: "Software Engineer",
+      company: "Logezy Infotech Private Limited",
+      location: "Remote",
+      type: "Product-Based",
+      duration: "Previous Role",
+      responsibilities: [
+        "Designed and developed RESTful APIs for enterprise applications",
+        "Optimized database queries resulting in improved system performance",
+        "Implemented multi-tenant database architecture for scalable solutions",
+        "Collaborated with cross-functional teams to deliver features on time",
       ],
     },
   ];
