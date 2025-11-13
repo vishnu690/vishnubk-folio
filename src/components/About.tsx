@@ -1,7 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Code2, Lightbulb, MapPin } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export const About = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const interests = [
     { icon: Code2, text: "Clean, maintainable code" },
     { icon: Lightbulb, text: "Continuous learning" },
@@ -11,7 +14,7 @@ export const About = () => {
   return (
     <section id="about" className="py-20 px-4 section-bg">
       <div className="container mx-auto max-w-5xl">
-        <div className="space-y-12 animate-slide-up">
+        <div ref={ref} className={`space-y-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="text-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
               About Me
@@ -36,7 +39,8 @@ export const About = () => {
                     {interests.map((interest, index) => (
                       <div
                         key={index}
-                        className="flex items-center space-x-3 p-4 rounded-lg bg-accent hover:bg-accent/80 transition-colors"
+                        style={{ animationDelay: `${index * 150}ms` }}
+                        className={`flex items-center space-x-3 p-4 rounded-lg bg-accent hover:bg-accent/80 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                       >
                         <interest.icon className="h-6 w-6 text-primary flex-shrink-0" />
                         <span className="text-foreground font-medium">{interest.text}</span>

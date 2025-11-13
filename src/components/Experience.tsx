@@ -1,8 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Briefcase, MapPin, Calendar } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export const Experience = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const experiences = [
     {
       title: "Software Support Executive",
@@ -35,7 +38,7 @@ export const Experience = () => {
   return (
     <section id="experience" className="py-20 px-4 section-bg">
       <div className="container mx-auto max-w-5xl">
-        <div className="space-y-12 animate-slide-up">
+        <div ref={ref} className={`space-y-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="text-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
               Experience
@@ -50,7 +53,8 @@ export const Experience = () => {
             {experiences.map((exp, index) => (
               <Card
                 key={index}
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+                style={{ animationDelay: `${index * 200}ms` }}
+                className={`border-0 shadow-lg hover:shadow-xl transition-all duration-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}
               >
                 <CardContent className="p-6 md:p-8">
                   <div className="space-y-4">

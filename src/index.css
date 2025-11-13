@@ -104,7 +104,11 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
+* {
+  scroll-behavior: smooth;
+}
+
+body {
     @apply bg-background text-foreground;
   }
 }

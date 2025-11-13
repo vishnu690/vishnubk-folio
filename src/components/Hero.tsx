@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import { useParallax } from "@/hooks/useParallax";
 
 export const Hero = () => {
+  const offsetY = useParallax(0.3);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -11,9 +14,13 @@ export const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-4">
+    <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-4 relative overflow-hidden">
+      <div className="absolute inset-0 -z-10" style={{ transform: `translateY(${offsetY}px)` }}>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      </div>
       <div className="container mx-auto">
-        <div className="flex flex-col items-center text-center space-y-8 animate-fade-in">
+        <div className="flex flex-col items-center text-center space-y-8 animate-fade-in" style={{ transform: `translateY(${offsetY * 0.5}px)` }}>
           <div className="relative">
             <img 
               src={profilePhoto} 
