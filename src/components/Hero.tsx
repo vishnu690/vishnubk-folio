@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profilePhoto from "@/assets/profileOne.png";
 import { useParallax } from "@/hooks/useParallax";
 
 export const Hero = () => {
@@ -25,7 +25,7 @@ export const Hero = () => {
             <img 
               src={profilePhoto} 
               alt="Vishnu B Kumar - Software Engineer"
-              className="w-40 h-40 rounded-full object-cover shadow-2xl ring-4 ring-primary/20"
+              className="w-50 h-60 rounded-full object-cover shadow-2xl ring-4 ring-primary/20"
             />
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-primary/60 blur-2xl opacity-20 -z-10"></div>
           </div>
