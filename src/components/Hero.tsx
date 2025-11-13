@@ -22,7 +22,7 @@ export const Hero = () => {
 
           <div className="space-y-4 max-w-3xl">
             <h1 className="text-5xl md:text-7xl font-bold text-foreground">
-              Hi, I'm <span className="hero-gradient bg-clip-text text-transparent">Vishnu</span> — Software Engineer
+              Hi, I'm Vishnu — Software Engineer
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground">
               I build secure, scalable, and high-performance web applications.
