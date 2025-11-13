@@ -1,8 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Layers, Users, Database } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export const Projects = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const projects = [
     {
       icon: Layers,
@@ -35,7 +38,7 @@ export const Projects = () => {
   return (
     <section id="projects" className="py-20 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
-        <div className="space-y-12 animate-slide-up">
+        <div ref={ref} className={`space-y-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="text-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
               Projects
@@ -50,7 +53,8 @@ export const Projects = () => {
             {projects.map((project, index) => (
               <Card
                 key={index}
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                style={{ animationDelay: `${index * 200}ms` }}
+                className={`border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
               >
                 <CardContent className="p-8">
                   <div className="space-y-6">

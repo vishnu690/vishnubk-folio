@@ -1,8 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code, Database, Smartphone, Wrench, Shield } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export const Skills = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const skillCategories = [
     {
       icon: Code,
@@ -34,7 +37,7 @@ export const Skills = () => {
   return (
     <section id="skills" className="py-20 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
-        <div className="space-y-12 animate-slide-up">
+        <div ref={ref} className={`space-y-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="text-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
               Skills & Tech Stack
@@ -49,7 +52,8 @@ export const Skills = () => {
             {skillCategories.map((category, index) => (
               <Card
                 key={index}
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                style={{ animationDelay: `${index * 100}ms` }}
+                className={`border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
               >
                 <CardContent className="p-6">
                   <div className="space-y-4">
