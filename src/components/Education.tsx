@@ -5,7 +5,7 @@ const Education = () => {
   const education = [
     {
       degree: "Android Development Certification",
-      institution: "LCC Creative Education",
+      institution: "LCC Computer Education",
       year: "2021",
       description: "Internship focused on Android app development using Java",
     },
@@ -60,5 +60,6 @@ const Education = () => {
     </section>
   );
 };
+
 
 export default Education;
